@@ -1,23 +1,66 @@
-const celeste = document.getElementById('celeste')
+const celeste = document.getElementById('celeste') //la forma de llamar elementos de html a js para trabajar en ellos 
 const violeta = document.getElementById('violeta')
 const naranja = document.getElementById('naranja')
 const verde = document.getElementById('verde')
 const btnEmpezar = document.getElementById('btnEmpezar')
 
-class Juego {
+class Juego { //la logica del programa
   constructor() {
     this.inicializar()
     this.generarSecuencia()
+    this.siguienteNivel()
   }
 
   inicializar() {
     btnEmpezar.classList.add('hide')
+    this.nivel = 1
+    this.colores = {
+      celeste: celeste,
+      violeta: violeta,
+      naranja: naranja,
+      verde: verde
+    }
   }
+
   generarSecuencia(){
-    this.secuencia =  new Array(10).fill(0).map(n => Math.random()* 4) //asi se 
+    this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4)) 
   }
+  siguienteNivel(){
+    this.iluminarSecuencia()
+  }
+
+  transformarNumeroAColor(num){
+    switch(num){
+      case 0:
+      return 'celeste'
+      case 1:
+        return 'violeta'
+      case 2:
+        return 'naranja'
+      case 3:
+        return 'verde'  
+    }
+  }
+
+  iluminarSecuencia(){
+        for(let i = 0; i < this.nivel; i++){
+          const color = this.transformarNumeroAColor(this.secuencia[i]) // aca transforme la secuencia en colores
+
+          setTimeout(this.iluminarColor() , 1000 * i)
+        }
+      }   
+        iluminarColor(color) {
+          this.colores[color].classList.add("light")
+          setTimeout(() => this.apagarcolor() , 350)
+        }      
+        
+        apagarcolor(color) {
+          this.colores[color].classList.remove("light")
+        }
+      } 
+ 
+
+function empezarJuego() { //esta es la funcion del boton emepezar
+   window.elJuego = new Juego()
 }
 
-function empezarJuego() {
-  var juego = new Juego()
-}
