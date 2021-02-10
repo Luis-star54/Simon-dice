@@ -5,6 +5,7 @@ const verde = document.getElementById('verde')
 const btnEmpezar = document.getElementById('btnEmpezar')
 const ULTIMO_NIVEL = 10
 
+swal('Instrucciones', 'Intenta seguir la secuencia de los colores')
 class Juego { //la logica del programa
   constructor() {
     this.inicializar = this.inicializar.bind(this)
@@ -128,7 +129,7 @@ class Juego { //la logica del programa
           swal('Simon dice' , 'lo siento, perdiste :( ' , 'error')
             .then(  () => {
                 this.eliminarEventosClick()
-                this.inicializar
+                this.inicializar()
             })
         }
       } 
