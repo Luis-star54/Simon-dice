@@ -20,6 +20,7 @@ body {
     width: 50%;
     height: 50%;
     display: inline-block;
+    
   }
 
   .left {
@@ -32,34 +33,42 @@ body {
 
   .celeste {
     background: #22a6b3;
+    cursor: pointer;
   }
 
   .celeste.light {
     background: #7ed6df;
+    cursor: pointer;
   }
 
   .violeta {
     background: #be2edd;
+    cursor: pointer;
   }
 
   .violeta.light {
     background: #e056fd;
+    cursor: pointer;
   }
 
   .naranja {
     background: #f0932b;
+    cursor: pointer;
   }
 
   .naranja.light {
     background: #ffbe76;
+    cursor: pointer;
   }
 
   .verde {
     background: #6ab04c;
+    cursor: pointer;
   }
 
   .verde.light {
     background: #badc58;
+    cursor: pointer;
   }
 
   .btn-start {
@@ -71,6 +80,7 @@ body {
     position: absolute;
     top: calc(50% - 50px);
     left: calc(50% - 200px);
+    cursor: pointer;
   }
 
   .hide {
